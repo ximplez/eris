@@ -1,4 +1,4 @@
-package eris
+package errs
 
 import (
 	"fmt"
@@ -42,15 +42,15 @@ func NewDefaultStringFormat(options FormatOptions) StringFormat {
 //
 // An error without trace will be formatted as follows:
 //
-//   <Wrap error msg>: <Root error msg>
+//	<Wrap error msg>: <Root error msg>
 //
 // An error with trace will be formatted as follows:
 //
-//   <Wrap error msg>
-//     <Method2>:<File2>:<Line2>
-//   <Root error msg>
-//     <Method2>:<File2>:<Line2>
-//     <Method1>:<File1>:<Line1>
+//	<Wrap error msg>
+//	  <Method2>:<File2>:<Line2>
+//	<Root error msg>
+//	  <Method2>:<File2>:<Line2>
+//	  <Method1>:<File1>:<Line1>
 func ToString(err error, withTrace bool) string {
 	return ToCustomString(err, NewDefaultStringFormat(FormatOptions{
 		WithTrace:    withTrace,
@@ -63,15 +63,15 @@ func ToString(err error, withTrace bool) string {
 // To declare custom format, the Format object has to be passed as an argument.
 // An error without trace will be formatted as follows:
 //
-//   <Wrap error msg>[Format.ErrorSep]<Root error msg>
+//	<Wrap error msg>[Format.ErrorSep]<Root error msg>
 //
 // An error with trace will be formatted as follows:
 //
-//   <Wrap error msg>[Format.MsgStackSep]
-//   [Format.PreStackSep]<Method2>[Format.StackElemSep]<File2>[Format.StackElemSep]<Line2>[Format.ErrorSep]
-//   <Root error msg>[Format.MsgStackSep]
-//   [Format.PreStackSep]<Method2>[Format.StackElemSep]<File2>[Format.StackElemSep]<Line2>[Format.ErrorSep]
-//   [Format.PreStackSep]<Method1>[Format.StackElemSep]<File1>[Format.StackElemSep]<Line1>[Format.ErrorSep]
+//	<Wrap error msg>[Format.MsgStackSep]
+//	[Format.PreStackSep]<Method2>[Format.StackElemSep]<File2>[Format.StackElemSep]<Line2>[Format.ErrorSep]
+//	<Root error msg>[Format.MsgStackSep]
+//	[Format.PreStackSep]<Method2>[Format.StackElemSep]<File2>[Format.StackElemSep]<Line2>[Format.ErrorSep]
+//	[Format.PreStackSep]<Method1>[Format.StackElemSep]<File1>[Format.StackElemSep]<Line1>[Format.ErrorSep]
 func ToCustomString(err error, format StringFormat) string {
 	upErr := Unpack(err)
 
@@ -122,34 +122,34 @@ func NewDefaultJSONFormat(options FormatOptions) JSONFormat {
 //
 // An error without trace will be formatted as follows:
 //
-//   {
-//     "root": {
-//         "message": "Root error msg"
-//     },
-//     "wrap": [
-//       {
-//         "message": "Wrap error msg"
-//       }
-//     ]
-//   }
+//	{
+//	  "root": {
+//	      "message": "Root error msg"
+//	  },
+//	  "wrap": [
+//	    {
+//	      "message": "Wrap error msg"
+//	    }
+//	  ]
+//	}
 //
 // An error with trace will be formatted as follows:
 //
-//   {
-//     "root": {
-//       "message": "Root error msg",
-//       "stack": [
-//         "<Method2>:<File2>:<Line2>",
-//         "<Method1>:<File1>:<Line1>"
-//       ]
-//     },
-//     "wrap": [
-//       {
-//         "message": "Wrap error msg",
-//         "stack": "<Method2>:<File2>:<Line2>"
-//       }
-//     ]
-//   }
+//	{
+//	  "root": {
+//	    "message": "Root error msg",
+//	    "stack": [
+//	      "<Method2>:<File2>:<Line2>",
+//	      "<Method1>:<File1>:<Line1>"
+//	    ]
+//	  },
+//	  "wrap": [
+//	    {
+//	      "message": "Wrap error msg",
+//	      "stack": "<Method2>:<File2>:<Line2>"
+//	    }
+//	  ]
+//	}
 func ToJSON(err error, withTrace bool) map[string]interface{} {
 	return ToCustomJSON(err, NewDefaultJSONFormat(FormatOptions{
 		WithTrace:    withTrace,
@@ -162,34 +162,34 @@ func ToJSON(err error, withTrace bool) map[string]interface{} {
 // To declare custom format, the Format object has to be passed as an argument.
 // An error without trace will be formatted as follows:
 //
-//   {
-//     "root": {
-//       "message": "Root error msg",
-//     },
-//     "wrap": [
-//       {
-//         "message": "Wrap error msg'",
-//       }
-//     ]
-//   }
+//	{
+//	  "root": {
+//	    "message": "Root error msg",
+//	  },
+//	  "wrap": [
+//	    {
+//	      "message": "Wrap error msg'",
+//	    }
+//	  ]
+//	}
 //
 // An error with trace will be formatted as follows:
 //
-//   {
-//     "root": {
-//       "message": "Root error msg",
-//       "stack": [
-//         "<Method2>[Format.StackElemSep]<File2>[Format.StackElemSep]<Line2>",
-//         "<Method1>[Format.StackElemSep]<File1>[Format.StackElemSep]<Line1>"
-//       ]
-//     }
-//     "wrap": [
-//       {
-//         "message": "Wrap error msg",
-//         "stack": "<Method2>[Format.StackElemSep]<File2>[Format.StackElemSep]<Line2>"
-//       }
-//     ]
-//   }
+//	{
+//	  "root": {
+//	    "message": "Root error msg",
+//	    "stack": [
+//	      "<Method2>[Format.StackElemSep]<File2>[Format.StackElemSep]<Line2>",
+//	      "<Method1>[Format.StackElemSep]<File1>[Format.StackElemSep]<Line1>"
+//	    ]
+//	  }
+//	  "wrap": [
+//	    {
+//	      "message": "Wrap error msg",
+//	      "stack": "<Method2>[Format.StackElemSep]<File2>[Format.StackElemSep]<Line2>"
+//	    }
+//	  ]
+//	}
 func ToCustomJSON(err error, format JSONFormat) map[string]interface{} {
 	upErr := Unpack(err)
 

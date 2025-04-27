@@ -1,5 +1,5 @@
-// Package eris is an error handling library with readable stack traces and flexible formatting support.
-package eris
+// package errs is an error handling library with readable stack traces and flexible formatting support.
+package errs
 
 import (
 	"fmt"

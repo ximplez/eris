@@ -1,4 +1,4 @@
-package eris_test
+package errs_test
 
 import (
 	"encoding/json"
@@ -6,7 +6,7 @@ import (
 	"io"
 	"testing"
 
-	"github.com/rotisserie/eris"
+	eris "github.com/ximplez/xtool/errs"
 )
 
 var (

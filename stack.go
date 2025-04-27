@@ -1,4 +1,4 @@
-package eris
+package errs
 
 import (
 	"fmt"

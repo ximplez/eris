@@ -1,4 +1,4 @@
-package eris_test
+package errs_test
 
 import (
 	"errors"
@@ -8,7 +8,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/rotisserie/eris"
+	eris "github.com/ximplez/xtool/errs"
 )
 
 var (

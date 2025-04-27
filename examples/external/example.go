@@ -5,7 +5,6 @@ import (
 	"fmt"
 
 	pkgerrors "github.com/pkg/errors"
-	"github.com/rotisserie/eris"
 )
 
 var (

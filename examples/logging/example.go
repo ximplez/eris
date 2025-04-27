@@ -6,7 +6,6 @@ import (
 	"path/filepath"
 
 	"github.com/pkg/errors"
-	"github.com/rotisserie/eris"
 	"github.com/sirupsen/logrus"
 )
 

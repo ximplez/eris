@@ -4,9 +4,6 @@ import (
 	"flag"
 	"log"
 	"time"
-
-	"github.com/getsentry/sentry-go"
-	"github.com/rotisserie/eris"
 )
 
 var dsn string

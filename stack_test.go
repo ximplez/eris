@@ -1,4 +1,4 @@
-package eris_test
+package errs_test
 
 import (
 	"errors"
@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/rotisserie/eris"
+	eris "github.com/ximplez/xtool/errs"
 )
 
 const (

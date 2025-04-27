@@ -1,4 +1,4 @@
-package eris_test
+package errs_test
 
 import (
 	"encoding/json"
@@ -6,7 +6,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/rotisserie/eris"
+	eris "github.com/ximplez/xtool/errs"
 )
 
 func TestUnpack(t *testing.T) {

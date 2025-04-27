@@ -1,3 +1,3 @@
-module github.com/rotisserie/eris
+module github.com/ximplez/xtool/errs
 
 go 1.18
